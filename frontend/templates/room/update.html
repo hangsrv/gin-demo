@@ -1,0 +1,66 @@
+{{ define "room/update.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "room/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">新增房屋</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" action="/room/updateAdd?id={{.room.ID}}">
+                        <div class="form-group">
+                            <label for="owner_name" class="col-sm-2 control-label">业主姓名</label>
+                            <div class="col-sm-5">
+                                <select name="owner_name" class="form-control" id="owner_name">
+                                    {{ range .owner }}
+                                    <option>{{ .Name }}</option>
+                                    {{ end }}
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="area" class="col-sm-2 control-label">面积</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="area" value="{{.room.Area}}" class="form-control" id="area"
+                                       placeholder="请输入房屋面积">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="number" class="col-sm-2 control-label">房号</label>
+                            <div class="col-sm-5">
+                                <select name="number" class="form-control" id="number">
+                                    {{ range .rooms }}
+                                    <option>{{ .Number }}</option>
+                                    {{ end }}
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{end}}

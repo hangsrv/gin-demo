@@ -1,0 +1,109 @@
+{{ define "roomInfo/list.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "roomInfo/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">房屋基本信息</div>
+                <table class="table table-bordered table-striped table-hover ">
+                    <tbody>
+                    <tr>
+                        <td>业主姓名</td>
+                        <td>{{.room.OwnerName}}</td>
+                    </tr>
+                    <tr>
+                        <td>房屋面积</td>
+                        <td>{{.room.Area}}</td>
+                    </tr>
+                    <tr>
+                        <td>房号</td>
+                        <td>{{.room.Number}}</td>
+                    </tr>
+                    <tr>
+                        <td><a href="/roomInfo/create?id={{ .room.ID }}">创建</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">收费标准</div>
+                <table class="table table-bordered table-striped table-hover ">
+                    <thead>
+                    <tr>
+                        <th>收费类型</th>
+                        <th>单位</th>
+                        <th>单价</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>物业费</td>
+                        <td>平方米</td>
+                        <td>1.00</td>
+                    </tr>
+                    <tr>
+                        <td>水费</td>
+                        <td>吨</td>
+                        <td>0.70</td>
+                    </tr>
+                    <tr>
+                        <td>电费</td>
+                        <td>度</td>
+                        <td>0.80</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    房屋月度信息
+                </div>
+                <table class="table table-bordered table-striped table-hover ">
+                    <thead>
+                    <tr>
+                        <th>用水量</th>
+                        <th>用电量</th>
+                        <th>年</th>
+                        <th>月</th>
+                        <th>总费用</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {{ range .roomInfo }}
+                    <tr>
+                        <td>{{.Water}}</td>
+                        <td>{{.Electricity}}</td>
+                        <td>{{.Year}}</td>
+                        <td>{{.Month}}</td>
+                        <td>{{.Fee}}</td>
+                        <td>
+                            <a href="/roomInfo/update?id={{ .ID }}">修改</a>
+                            <a href="/roomInfo/delete?id={{ .ID }}">删除</a>
+                        </td>
+                    </tr>
+                    {{ end }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

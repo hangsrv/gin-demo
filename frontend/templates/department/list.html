@@ -1,0 +1,48 @@
+{{ define "department/list.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "department/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">部门列表</div>
+                <table class="table table-striped table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>部门名称</th>
+                        <th>部门电话</th>
+                        <th>部门主管</th>
+                        <th width="240">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {{ range .department }}
+                    <tr>
+                        <th scope="row">{{ .ID }}</th>
+                        <td>{{ .Name }}</td>
+                        <td>{{ .Phone }}</td>
+                        <td>{{ .ManagerName }}</td>
+                        <td>
+                            <a href="/department/update?id={{ .ID }}">修改</a>
+                            <a href="/department/delete?id={{ .ID }}">删除</a>
+                        </td>
+                    </tr>
+                    {{ end }}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{template "public/footer" .}}
+{{ end }}

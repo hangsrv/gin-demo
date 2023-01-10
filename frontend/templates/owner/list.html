@@ -1,0 +1,48 @@
+{{ define "owner/list.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "owner/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">业主列表</div>
+                <table class="table table-striped table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>工作</th>
+                        <th>电话</th>
+                        <th width="240">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {{ range .owner }}
+                    <tr>
+                        <th scope="row">{{ .ID }}</th>
+                        <td>{{ .Name }}</td>
+                        <td>{{ .Work }}</td>
+                        <td>{{ .Phone }}</td>
+                        <td>
+                            <a href="/owner/update?id={{ .ID }}">修改</a>
+                            <a href="/owner/delete?id={{ .ID }}">删除</a>
+                        </td>
+                    </tr>
+                    {{ end }}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{template "public/footer" .}}
+{{ end }}

@@ -1,0 +1,61 @@
+{{ define "owner/update.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "owner/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">修改业主</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" action="/owner/updateAdd?id={{.owner.ID}}">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">姓名</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="name" value="{{.owner.Name}}" class="form-control" id="name"
+                                       placeholder="请输入学生姓名">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="work" class="col-sm-2 control-label">工作</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="work" value="{{.owner.Work}}" class="form-control" id="work"
+                                       placeholder="请输入业主工作">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label">电话</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="phone" value="{{.owner.Phone}}" class="form-control"
+                                       id="phone"
+                                       placeholder="请输入业主电话">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

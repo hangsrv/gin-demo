@@ -1,0 +1,93 @@
+{{ define "employee/update.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "employee/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">新增员工</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" action="/employee/updateAdd?id={{.employee.ID}}">
+                        <div class="form-group">
+                            <label for="username" class="col-sm-2 control-label">员工名称</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="username" value="{{.employee.Username}}" class="form-control"
+                                       id="username"
+                                       placeholder="请输入员工名称">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="department_name" class="col-sm-2 control-label">部门名称</label>
+                            <div class="col-sm-5">
+                                <select name="department_name" class="form-control" id="department_name">
+                                    {{ range .department }}
+                                    <option>
+                                        {{ .Name }}
+                                    </option>
+                                    {{ end }}
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-2 control-label">员工密码</label>
+                            <div class="col-sm-5">
+                                <input type="password" name="password" value="{{.employee.Password}}"
+                                       class="form-control" id="password"
+                                       placeholder="请输入员工密码">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-sm-2 control-label">员工电话</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="phone" value="{{.employee.Phone}}" class="form-control"
+                                       id="phone"
+                                       placeholder="请输入部门电话">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">员工性别</label>
+                            <div class="col-sm-5">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="男" {{if eq .employee.Sex "男"}} checked
+                                    {{end}}> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="女" {{if eq .employee.Sex "女"}} checked
+                                    {{end}}> 女
+                                </label>
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{end}}

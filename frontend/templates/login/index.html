@@ -1,0 +1,44 @@
+{{ define "login/index.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">登陆</div>
+            <div class="panel-body">
+                <form class="form-horizontal" method="post" action="/log/doLogin">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">账号</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="username" class="form-control" id="username"
+                                   placeholder="请输入账号">
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="form-control-static text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-5">
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="请输入密码">
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="form-control-static text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">登陆</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{template "public/footer" .}}
+{{ end }}

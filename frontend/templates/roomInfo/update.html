@@ -1,0 +1,98 @@
+{{ define "roomInfo/update.html" }}
+{{template "public/header" .}}
+
+<!-- 中间内容区局 -->
+<div class="container">
+    <div class="row">
+        <!-- 左侧菜单区域   -->
+        {{block "roomInfo/menu" .}}{{end}}
+
+        <!-- 右侧内容区域 -->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">房屋基本信息</div>
+                <table class="table table-bordered table-striped table-hover ">
+                    <tbody>
+                    <tr>
+                        <td>业主姓名</td>
+                        <td>{{.room.OwnerName}}</td>
+                    </tr>
+                    <tr>
+                        <td>房屋面积</td>
+                        <td>{{.room.Area}}</td>
+                    </tr>
+                    <tr>
+                        <td>房号</td>
+                        <td>{{.room.Number}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">生产月度房费</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" action="/roomInfo/updateAdd?id={{.roomInfo.ID}}">
+                        <div class="form-group">
+                            <label for="water" class="col-sm-2 control-label">用水量</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="water" value="{{.roomInfo.Water}}" class="form-control"
+                                       id="water"
+                                       placeholder="请输入用水量">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="electricity" class="col-sm-2 control-label">用电量</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="electricity" value="{{.roomInfo.Electricity}}"
+                                       class="form-control" id="electricity"
+                                       placeholder="请输入用电量">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="year" class="col-sm-2 control-label">年份</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="year" value="{{.roomInfo.Year}}" class="form-control" id="year"
+                                       placeholder="请输入年份">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="month" class="col-sm-2 control-label">月份</label>
+
+                            <div class="col-sm-5">
+                                <input type="text" name="month" value="{{.roomInfo.Month}}" class="form-control"
+                                       id="month"
+                                       placeholder="请输入月份">
+                            </div>
+                            <div class="col-sm-5">
+                                <p class="form-control-static text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{end}}
