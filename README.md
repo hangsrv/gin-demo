@@ -2,7 +2,7 @@
 
 ## 部署说明
 
-[首页](http://localhost:8080/index) 管理员：hang/123456 普通用户：lp/123456
+http://localhost:8080/index 管理员：hang/123456 普通用户：lp/123456
 
 * sql.sql：mysql初始化sql
 * dockerfile：构建镜像
