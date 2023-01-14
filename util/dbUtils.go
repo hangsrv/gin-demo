@@ -11,7 +11,7 @@ var b *gorm.DB
 //数据库连接
 func init() {
 	driverName := "mysql"
-	host := "192.168.1.6"
+	host := "gin-mysql"
 	port := "3306"
 	database := "hang"
 	username := "root"

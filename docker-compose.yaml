@@ -1,24 +1,32 @@
 version: '3'
 
 services:
+  # gin-mysql
   gin-mysql:
     image: mysql
     container_name: gin-mysql
-    network_mode: bridge
+    networks:
+      gin_demo:
+        aliases:
+          - gin-mysql
     volumes:
       - ./sql.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       - "MYSQL_ROOT_PASSWORD=123456"
+  # gin-web
   gin-web:
-    network_mode: bridge
+    image: gin-web:v1.1.1
     container_name: gin-web
+    networks:
+      gin_demo:
+        aliases:
+          - gin-web
     build:
       context: .
-    image: gin-web
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - gin-mysql
     deploy:
@@ -27,3 +35,7 @@ services:
         delay: 5s
         max_attempts: 25
         window: 25s
+# 定义网络
+networks:
+  gin_demo:
+    driver: bridge
