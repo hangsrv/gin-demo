@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"gin_demo/model"
 	"gin_demo/util"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func RoomInfoList(c *gin.Context) {
@@ -27,8 +28,8 @@ func RoomInfoList(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "roomInfo/list.html", gin.H{
 		"title":    "详情页",
-		"active1":  "active",
-		"active2":  "",
+		"active3":  "active",
+		"active4":  "",
 		"room":     room,
 		"roomInfo": roomInfo,
 		"e":        e,
@@ -47,8 +48,8 @@ func RoomInfoCreate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "roomInfo/create.html", gin.H{
 		"title":   "新增页",
-		"active1": "",
-		"active2": "active",
+		"active3": "active",
+		"active4": "",
 		"room":    room,
 		"e":       e,
 	})
@@ -91,8 +92,8 @@ func RoomInfoUpdate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "roomInfo/update.html", gin.H{
 		"title":    "新增页",
-		"active1":  "",
-		"active2":  "active",
+		"active3":  "active",
+		"active4":  "",
 		"room":     room,
 		"roomInfo": roomInfo,
 		"e":        e,

@@ -3,8 +3,9 @@ package controller
 import (
 	"gin_demo/model"
 	"gin_demo/util"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func DepartmentList(c *gin.Context) {
@@ -20,8 +21,8 @@ func DepartmentList(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "department/list.html", gin.H{
 		"title":      "网站首页",
-		"active1":    "active",
-		"active2":    "",
+		"active6":    "active",
+		"active7":    "",
 		"department": department,
 		"e":          e,
 	})
@@ -41,8 +42,8 @@ func DepartmentCreate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "department/create.html", gin.H{
 		"title":    "新增页",
-		"active1":  "",
-		"active2":  "active",
+		"active6":  "",
+		"active7":  "active",
 		"e":        e,
 		"employee": employee,
 	})
@@ -83,8 +84,8 @@ func DepartmentUpdate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "department/update.html", gin.H{
 		"title":      "修改页",
-		"active1":    "active",
-		"active2":    "",
+		"active6":    "active",
+		"active7":    "",
 		"employee":   employee,
 		"department": department,
 		"e":          e,

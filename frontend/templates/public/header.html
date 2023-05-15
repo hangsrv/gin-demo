@@ -1,39 +1,20 @@
 {{define "public/header"}}
-    <!DOCTYPE html>
-    <html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Gin Demo--{{.title}}</title>
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    </head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gin Demo--{{.title}}</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
 
-    <body>
-    <div class="jumbotron">
-        <div class="container">
+<body style="background: rgba(0, 0, 0, 0) url('/assets/img/img.jpeg') no-repeat center center fixed; background-size: cover;">
+    <div class="jumbotron" style="background-color: rgba(0, 0, 0, 0.5);margin-bottom: 10px;color: #FFFFFF;">
+        <div class="container" style="background-color: rgba(0, 0, 0, 0.5);">
             <h2>小区物业收费</h2>
-            <p><b>@Later -- 2023年</b></p>
-
-            <div class="col-md-10">
-                <div class="panel-body">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            你好 {{if eq .e.IsManger 0}} 普通员工 {{end}} {{if eq .e.IsManger 1}} 管理员 {{end}}！
-                            {{ .e.Username }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a href="/log/doLogout">
-                <div class="col-md-2">
-                    <div class="panel-body">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">退出</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            <br />
+            <p><b>@西安电子科技大学 陈航、李俊杰 软件开发综合实训-- 2023年</b></p>
         </div>
     </div>
 {{end}}

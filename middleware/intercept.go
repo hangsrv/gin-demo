@@ -2,14 +2,15 @@ package middleware
 
 import (
 	"gin_demo/util"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 func LoginMiddleware(c *gin.Context) {
 	uri := c.Request.RequestURI
-	if strings.Contains(uri, "log") {
+	if strings.Contains(uri, "log") || strings.Contains(uri, "asset") {
 		c.Next()
 		return
 	}
@@ -24,5 +25,4 @@ func LoginMiddleware(c *gin.Context) {
 		c.Redirect(301, "/log/toLogin")
 	}
 	c.Next()
-	return
 }

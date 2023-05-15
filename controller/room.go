@@ -3,8 +3,9 @@ package controller
 import (
 	"gin_demo/model"
 	"gin_demo/util"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func RoomList(c *gin.Context) {
@@ -20,9 +21,9 @@ func RoomList(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "room/list.html", gin.H{
 		"title":   "网站首页",
-		"active1": "active",
-		"active2": "",
-		"active3": "",
+		"active3": "active",
+		"active4": "",
+		"active5": "",
 		"room":    rooms,
 		"e":       e,
 	})
@@ -47,9 +48,9 @@ func RoomCreate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "room/create.html", gin.H{
 		"title":   "新增页",
-		"active1": "",
-		"active2": "active",
 		"active3": "",
+		"active4": "active",
+		"active5": "",
 		"owner":   owner,
 		"rooms":   rooms,
 		"e":       e,
@@ -97,9 +98,9 @@ func RoomUpdate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "room/update.html", gin.H{
 		"title":   "修改页",
-		"active1": "active",
-		"active2": "",
-		"active3": "",
+		"active3": "active",
+		"active4": "",
+		"active5": "",
 		"owner":   owner,
 		"room":    room,
 		"rooms":   rooms,
@@ -149,9 +150,9 @@ func RoomOwnerUpdate(c *gin.Context) {
 	}
 	c.HTML(http.StatusOK, "room/updateOwner.html", gin.H{
 		"title":   "修改页",
-		"active1": "",
-		"active2": "",
-		"active3": "active",
+		"active3": "",
+		"active4": "",
+		"active5": "active",
 		"owner":   owner,
 		"room":    room,
 		"rooms":   rooms,

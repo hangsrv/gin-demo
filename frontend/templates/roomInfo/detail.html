@@ -2,12 +2,13 @@
 {{template "public/header" .}}
 
 <!-- 中间内容区局 -->
-<div class="container">
+<div class="container" style="background-color: rgba(0, 0, 0, 0.5);">
     <div class="row">
         <!-- 左侧菜单区域   -->
-        {{block "roomInfo/menu" .}}{{end}}
+        {{template "public/left" .}}
 
         <!-- 右侧内容区域 -->
+                <br/>
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">房屋基本信息</div>
@@ -34,6 +35,7 @@
         </div>
 
         <div class="col-md-3"></div>
+                <br/>
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">收费标准</div>
@@ -68,6 +70,7 @@
         </div>
 
         <div class="col-md-3"></div>
+                <br/>
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -105,5 +108,5 @@
         </div>
     </div>
 </div>
-
+{{template "public/footer" .}}
 {{end}}

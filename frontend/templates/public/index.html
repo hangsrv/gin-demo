@@ -2,56 +2,33 @@
 {{template "public/header" .}}
 
 <!-- 中间内容区局 -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="panel-body">
-                <div class="panel panel-default">
-                    <div class="panel-heading">业主信息</div>
-                    <div class="list-group">
-                        <a href="/owner/list" class="list-group-item {{.active1}}">业主列表</a>
-                        <a href="/owner/create" class="list-group-item {{.active2}}">新增业主</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel-body">
-                <div class="panel panel-default">
-                    <div class="panel-heading">房屋信息</div>
-                    <div class="list-group">
-                        <a href="/room/list" class="list-group-item {{.active1}}">房屋列表</a>
-                        <a href="/room/create" class="list-group-item {{.active2}}">新增房屋</a>
-                        <a href="/room/updateOwner" class="list-group-item {{.active3}}">设置房屋</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{if eq .e.IsManger 1}}
-        <div class="col-md-3">
-            <div class="panel-body">
-                <div class="panel panel-default">
-                    <div class="panel-heading">部门信息</div>
-                    <div class="list-group">
-                        <a href="/department/list" class="list-group-item {{.active1}}">部门列表</a>
-                        <a href="/department/create" class="list-group-item {{.active2}}">新增新增</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel-body">
-                <div class="panel panel-default">
-                    <div class="panel-heading">员工信息</div>
-                    <div class="list-group">
-                        <a href="/employee/list" class="list-group-item {{.active1}}">员工列表</a>
-                        <a href="/employee/create" class="list-group-item {{.active2}}">新增员工</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{ end }}
+<div >
+    <div class="container" style="background-color: rgba(0, 0, 0, 0.5);">
+        <div class="row">
+            <div class="col-md-12">
+                {{template "public/left" .}}
+                <!-- <div class="col-md-9" style="color: #FFFFFF;">
+                    <h1>欢迎进入小区物业收费系统！</h1> 
+                    <h2>{{if eq .e.IsManger 0}} 普通员工 {{end}} {{if eq .e.IsManger 1}} 管理员 {{end}} 
+                        <span style="color: red;">【{{ .e.Username }}】</span>
+                        您好！
+                    </h2>
+                </div> -->
 
+                <div class="col-md-9" style="color: #FFFFFF; height: 500px; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <h1 style="margin: 0; line-height: 1;">欢迎进入小区物业收费系统！</h1> 
+                        <h2 style="margin: 0; line-height: 1;">{{if eq .e.IsManger 0}} 普通员工 {{end}} {{if eq .e.IsManger 1}} 管理员 {{end}} 
+                            <span style="color: red;">【{{ .e.Username }}】</span>
+                            您好！
+                        </h2>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
     </div>
 </div>
 
