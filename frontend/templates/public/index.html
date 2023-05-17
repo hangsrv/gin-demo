@@ -7,6 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 {{template "public/left" .}}
+                {{if .e}}
                 <!-- <div class="col-md-9" style="color: #FFFFFF;">
                     <h1>欢迎进入小区物业收费系统！</h1> 
                     <h2>{{if eq .e.IsManger 0}} 普通员工 {{end}} {{if eq .e.IsManger 1}} 管理员 {{end}} 
@@ -14,17 +15,16 @@
                         您好！
                     </h2>
                 </div> -->
-
-                <div class="col-md-9" style="color: #FFFFFF; height: 500px; display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center;">
-                        <h1 style="margin: 0; line-height: 1;">欢迎进入小区物业收费系统！</h1> 
-                        <h2 style="margin: 0; line-height: 1;">{{if eq .e.IsManger 0}} 普通员工 {{end}} {{if eq .e.IsManger 1}} 管理员 {{end}} 
-                            <span style="color: red;">【{{ .e.Username }}】</span>
-                            您好！
-                        </h2>
+                    <div class="col-md-9" style="color: #FFFFFF; height: 500px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <h1 style="margin: 0; line-height: 1;">欢迎进入小区物业收费系统！</h1> 
+                            <h2 style="margin: 0; line-height: 1;">{{if eq .e.IsManger 0}} 普通员工 {{end}} {{if eq .e.IsManger 1}} 管理员 {{end}} 
+                                <span style="color: red;">【{{ .e.Username }}】</span>
+                                您好！
+                            </h2>
+                        </div>
                     </div>
-                </div>
-                
+                {{end}}  
                 
                 
             </div>

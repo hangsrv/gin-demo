@@ -14,18 +14,20 @@
                 <a href="/room/create" class="list-group-item {{.active4}}">新增房屋</a>
                 <a href="/room/updateOwner" class="list-group-item {{.active5}}">设置房屋</a>
             </div>
-            {{if eq .e.IsManger 1}}
-            <div class="panel-heading">部门信息</div>
-            <div class="list-group">
-                <a href="/department/list" class="list-group-item {{.active6}}">部门列表</a>
-                <a href="/department/create" class="list-group-item {{.active7}}">新增部门</a>
-            </div>
+            {{if .e}}
+                {{if eq .e.IsManger 1}}
+                <div class="panel-heading">部门信息</div>
+                <div class="list-group">
+                    <a href="/department/list" class="list-group-item {{.active6}}">部门列表</a>
+                    <a href="/department/create" class="list-group-item {{.active7}}">新增部门</a>
+                </div>
 
-            <div class="panel-heading">员工信息</div>
-            <div class="list-group">
-                <a href="/employee/list" class="list-group-item {{.active8}}">员工列表</a>
-                <a href="/employee/create" class="list-group-item {{.active9}}">新增员工</a>
-            </div>
+                <div class="panel-heading">员工信息</div>
+                <div class="list-group">
+                    <a href="/employee/list" class="list-group-item {{.active8}}">员工列表</a>
+                    <a href="/employee/create" class="list-group-item {{.active9}}">新增员工</a>
+                </div>
+                {{ end }}
             {{ end }}
 
             <div class="panel-heading" style="display: flex; justify-content: space-between;">
